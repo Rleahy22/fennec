@@ -1,0 +1,22 @@
+{
+  "name": "fennec",
+  "version": "0.0.1",
+  "description": "Collaborative real time playlists",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rleahy22/fennec.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rleahy22/fennec/issues"
+  },
+  "homepage": "https://github.com/Rleahy22/fennec#readme",
+  "dependencies": {
+    "koa": "^1.2.4"
+  }
+}
