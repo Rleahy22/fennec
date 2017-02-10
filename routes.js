@@ -8,7 +8,7 @@ config = JSON.stringify({
     baseUrl: config.baseUrl
 });
 
-const render = views('views/', {
+const render = views('src/', {
     map: {
         html: 'hogan'
     }
