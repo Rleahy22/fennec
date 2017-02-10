@@ -5,7 +5,7 @@ const bodyParser = require('koa-body-parser');
 const router     = require('./routes');
 const serve      = require('koa-static');
 const http       = require('http');
-const https      = require('http');
+const https      = require('https');
 const socketIO   = require('socket.io');
 const config     = require('./config/config')();
 
