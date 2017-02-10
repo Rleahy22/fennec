@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/Rleahy22/fennec#readme",
   "dependencies": {
-    "koa": "^1.2.4"
+    "co-views": "^2.1.0",
+    "hogan.js": "^3.0.2",
+    "koa": "^1.2.4",
+    "koa-body-parser": "^1.1.2",
+    "koa-router": "^5.4.0",
+    "koa-static": "^2.1.0",
+    "socket.io": "^1.7.2"
   }
 }
