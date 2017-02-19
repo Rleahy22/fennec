@@ -22,10 +22,11 @@ app.use(function *(next) {
   console.log('%s %s - %s ms', this.method, this.url, ms);
 });
 
-if (process.env.NODE_ENV === 'prod') {
-    server = https.createServer(app.callback());
-} else {
+if (config.environment === 'dev') {
+    console.log('DEV:', config.environment);
     server = http.createServer(app.callback());
+} else {
+    server = https.createServer(app.callback());
 }
 
 const io = socketIO(server);
