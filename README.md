@@ -5,7 +5,8 @@ To run the app
 
 ```
 npm install
-webpack-dev-server
+webpack
+npm start
 ```
 
-Then go to http://localhost:8080/
+Then go to http://localhost:3000/

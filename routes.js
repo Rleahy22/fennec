@@ -39,12 +39,14 @@ module.exports = function(app, io) {
 
         if (activeRooms.indexOf(roomId) < 0) {
             timer = 0;
+
             setInterval(() => {
                 timer += 5000;
                 Socket.emit('timer', {
                     time: timer
                 });
             }, 500);
+
             activeRooms.push(roomId);
         }
 
