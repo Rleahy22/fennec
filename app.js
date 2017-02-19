@@ -5,7 +5,6 @@ const bodyParser = require('koa-body-parser');
 const router     = require('./routes');
 const serve      = require('koa-static');
 const http       = require('http');
-const https      = require('https');
 const favicon    = require('koa-favicon');
 
 const socketIO   = require('socket.io');
@@ -25,11 +24,7 @@ app.use(function *(next) {
   console.log('%s %s - %s ms', this.method, this.url, ms);
 });
 
-if (process.env.NODE_ENV === 'dev') {
-    server = http.createServer(app.callback());
-} else {
-    server = https.createServer(app.callback());
-}
+server = http.createServer(app.callback());
 
 const io = socketIO(server);
 
