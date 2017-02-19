@@ -6,7 +6,7 @@ module.exports = function () {
             password: "password",
             database: "db"
         },
-        port: 8001,
-        baseUrl: "http://localhost:8001/"
+        port: 3000,
+        baseUrl: "http://localhost:3000/"
     };
 };

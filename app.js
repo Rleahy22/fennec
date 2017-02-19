@@ -32,8 +32,8 @@ const io = socketIO(server);
 
 router(app, io);
 
-server.listen(config.port || 8001, function() {
-    console.log('Listening on port %s', config.port || "8001");
+server.listen(config.port || 3000, function() {
+    console.log('Listening on port %s', config.port || "3000");
 });
 
 process.on('uncaughtException', function (err) {
