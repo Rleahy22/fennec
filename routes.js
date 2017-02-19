@@ -4,6 +4,9 @@ const router = require("koa-router")();
 const views  = require('co-views');
 let config   = require('./config/config')();
 
+let activeRooms = [];
+let timer;
+
 config = JSON.stringify({
     baseUrl: config.baseUrl
 });
@@ -27,6 +30,28 @@ module.exports = function(app, io) {
         this.body = yield render('index', {
             config: config
         });
+    });
+
+    router.get('/room/:id', function *(next) {
+        yield next;
+
+        const roomId = this.params.id;
+
+        if (activeRooms.indexOf(roomId) < 0) {
+            timer = 0;
+            setInterval(() => {
+                timer += 5000;
+                Socket.emit('timer', {
+                    time: timer
+                });
+            }, 500);
+            activeRooms.push(roomId);
+        }
+
+        this.body = yield render('index', {
+            config: config
+        });
+
     });
 
     app.use(router.routes());
