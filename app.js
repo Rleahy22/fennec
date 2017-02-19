@@ -6,6 +6,8 @@ const router     = require('./routes');
 const serve      = require('koa-static');
 const http       = require('http');
 const https      = require('https');
+const favicon    = require('koa-favicon');
+
 const socketIO   = require('socket.io');
 const config     = require('./config/config')();
 
@@ -14,6 +16,7 @@ let server;
 
 app.use(bodyParser());
 app.use(serve(__dirname + '/'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 app.use(function *(next) {
   const start = new Date();
@@ -33,8 +36,8 @@ const io = socketIO(server);
 
 router(app, io);
 
-server.listen(config.port || 3000, function() {
-    console.log('Listening on port %s', config.port || "3000");
+server.listen(process.env.PORT || 3000, function() {
+    console.log('Listening on port %s', process.env.PORT || "3000");
 });
 
 process.on('uncaughtException', function (err) {
