@@ -25,8 +25,7 @@ app.use(function *(next) {
   console.log('%s %s - %s ms', this.method, this.url, ms);
 });
 
-if (config.environment === 'dev') {
-    console.log('DEV:', config.environment);
+if (process.env.NODE_ENV === 'dev') {
     server = http.createServer(app.callback());
 } else {
     server = https.createServer(app.callback());
@@ -43,3 +42,5 @@ server.listen(process.env.PORT || 3000, function() {
 process.on('uncaughtException', function (err) {
     console.log('uncaughtException', err, err.stack);
 });
+
+module.exports = app;
