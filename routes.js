@@ -53,7 +53,9 @@ module.exports = function(app, io) {
 
             setInterval(() => {
                 newRoom.status.time += 10000;
-                Socket.emit('roomStatus', newRoom);
+                if (Socket) {
+                    Socket.emit('roomStatus', newRoom);
+                }
             }, 1000);
         }
 
